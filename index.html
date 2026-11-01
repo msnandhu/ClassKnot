@@ -816,6 +816,119 @@ input[type=range]{accent-color:#FF6F61}
 }
 @media (max-width:340px){.nav-logo{height:28px}}
 
+/* =====================================================================
+   MINIMAL SYSTEM — flat surfaces, hairline borders, no blur, no gloss
+   ===================================================================== */
+:root{--shadow:0 1px 2px rgba(74,78,105,.06);--shadow-lg:0 30px 60px -30px rgba(43,45,62,.35);--hair:rgba(74,78,105,.12);--hair-strong:rgba(74,78,105,.22)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--shadow:none;--shadow-lg:0 30px 60px -30px rgba(0,0,0,.6);--hair:rgba(241,226,191,.1);--hair-strong:rgba(241,226,191,.2)}}
+:root[data-theme="dark"]{--shadow:none;--shadow-lg:0 30px 60px -30px rgba(0,0,0,.6);--hair:rgba(241,226,191,.1);--hair-strong:rgba(241,226,191,.2)}
+*{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+
+/* Nav: full-width flat bar */
+.nav{padding-top:0!important;background:var(--bg);border-bottom:1px solid var(--hair);transition:background .3s,border-color .3s}
+.nav .nav-in,.nav.on-dark .nav-in,.nav.scrolled .nav-in{height:68px;padding:0;border-radius:0;background:transparent!important;border:0!important;box-shadow:none!important}
+.nav.on-dark{background:#26283A;border-bottom-color:rgba(241,226,191,.08)}
+.nav .menu-btn,.nav.on-dark .menu-btn{background:transparent;border:1px solid var(--hair-strong);box-shadow:none}
+.nav.on-dark .menu-btn{border-color:rgba(241,226,191,.22)}
+.mobile-menu{margin:0 0 12px;border-radius:12px;background:var(--surface);border:1px solid var(--hair);box-shadow:0 16px 32px -20px rgba(43,45,62,.3)}
+@media (max-width:960px){.nav .nav-in,.nav.on-dark .nav-in,.nav.scrolled .nav-in{height:60px;padding:0}}
+@media (max-width:440px){.nav .nav-in,.nav.on-dark .nav-in,.nav.scrolled .nav-in{height:58px}}
+
+/* Buttons: solid, square-ish, no gloss */
+.btn{border-radius:10px;box-shadow:none!important}
+.btn::after,.btn-primary::after{display:none!important}
+.btn-primary{background:#FF6F61!important;color:#FFFFFF}
+.btn-primary:hover{background:#F25B4D!important;transform:none}
+.btn-glass,.cine-ghost,.band .btn-glass,.price-card .btn-glass{background:transparent!important;box-shadow:none!important}
+.btn-glass{color:var(--ink);border:1px solid var(--hair-strong)}
+.btn-glass:hover{border-color:var(--ink);transform:none}
+.cine-ghost,.band .btn-glass,.price-card .btn-glass{color:#FBF6EA;border:1px solid rgba(241,226,191,.3)}
+.cine-ghost:hover,.band .btn-glass:hover,.price-card .btn-glass:hover{border-color:#FBF6EA;transform:none}
+.btn-wa,.wa-float{background:#25D366!important;box-shadow:none!important}
+.btn-wa:hover{background:#1EBE5A!important;transform:none}
+.wa-float{box-shadow:0 8px 20px -8px rgba(0,0,0,.35)!important}
+.wa-float::before{display:none}
+.wa-float:hover{transform:none;background:#1EBE5A!important}
+
+/* Hero: flat slate stage, solid accent, split band under the laptop */
+.cine{background:#26283A!important}
+.cine::after{height:clamp(110px,18%,190px);background:var(--bg)}
+.cine-title .accent > span{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:#FF8A7E!important;animation:lineUp 1.3s .18s cubic-bezier(.16,.84,.24,1) both}
+.cine-announce{background:transparent;border:1px solid rgba(241,226,191,.2);padding:5px}
+.cine-announce:hover{background:transparent;border-color:rgba(241,226,191,.45)}
+.cine-announce .tag{background:#F9D74E;color:#26283A}
+.cine-announce .go{background:transparent;color:#FBF6EA}
+.cine-stage::before{display:none}
+.cine-stage .lid,.lid{background:#3A3D54;box-shadow:var(--shadow-lg)!important}
+.lid::after,.phone::after{display:none}
+.base{background:#C8CAD6;box-shadow:none}
+.base::before{background:#A9ACBC}
+.shadow-floor{display:none}
+.phone{background:#3A3D54;box-shadow:var(--shadow-lg)!important}
+.cine-stage .phone,.hero-stage .phone,.float-card{animation:none!important}
+
+/* Floating notes: flat white tags */
+.float-card{background:var(--surface)!important;border:1px solid var(--hair)!important;box-shadow:0 10px 24px -16px rgba(43,45,62,.4)!important;border-radius:12px}
+.float-card .ic{background:var(--ice-2)!important;color:var(--royal-ink)!important;box-shadow:none!important}
+
+/* App UI inside mockups: flat fills */
+.bar span{background:#68B3A8}
+.chart div{background:#68B3A8;opacity:1}
+.chart div.dim{background:var(--ice-2)}
+.av{background:#2E7A70!important;color:#FFFFFF}
+.p-hero{background:#2E7A70!important}
+.p-hero::after{display:none}
+.msg.out{background:#2E7A70!important;color:#FFFFFF}
+
+/* Section labels & headings: solid colour */
+.eyebrow::before,.band .eyebrow::before{background:currentColor;width:16px;height:1px}
+.grad-text{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:var(--royal-ink)!important}
+.final h2 em{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:#F9D74E!important}
+
+/* Bands: flat slate */
+.band::before{display:none}
+.soft{background:var(--bg-soft)!important}
+.strip{background:var(--bg-soft);border-color:var(--hair)}
+
+/* Cards: hairline, flat, no hover lift */
+.feat,.feat.big,.why article,.shift,.panel,.kpi,.p-card,.checks li,form.demo{box-shadow:none!important}
+.feat,.why article{border:1px solid var(--hair);border-radius:14px;background:var(--surface)!important;transition:border-color .2s}
+.feat::before{display:none}
+.feat:hover,.why article:hover{transform:none!important;box-shadow:none!important;border-color:var(--hair-strong)}
+.feat .ic{background:var(--ice-2)!important;color:var(--royal-ink)!important;box-shadow:none!important;border-radius:12px}
+.feat .ic::after{display:none}
+.feat.big .mini div{background:var(--bg-soft);border-color:transparent}
+.why .num{-webkit-text-stroke:0;color:var(--hair-strong);font-weight:700}
+.checks li{background:var(--surface)!important;border:1px solid var(--hair)!important;border-radius:12px}
+.checks .ci{background:var(--bg-soft)}
+.shift{border:1px solid var(--hair);border-radius:14px}
+.shift-row.head{background:var(--bg-soft)}
+
+/* Connection diagram */
+.k-node .bub{background:var(--surface)!important;border:1px solid var(--hair)!important;box-shadow:none!important;border-radius:14px}
+.k-center{background:var(--surface)!important;border:1px solid var(--hair)!important;box-shadow:0 0 0 12px var(--bg-soft)!important}
+.knot-line{stroke:#68B3A8;opacity:.6}
+
+/* Management list */
+.mgmt-list .ci{background:transparent!important;border:1px solid rgba(241,226,191,.25)!important;box-shadow:none!important;color:#F9D74E}
+.final-steps li::before{background:transparent;border-color:rgba(241,226,191,.3);color:#F9D74E}
+
+/* Pricing: one flat slate card */
+.price-card{background:#4A4E69!important;box-shadow:none!important;border-radius:18px}
+.price-card::before,.price-card::after{display:none!important}
+.amount b{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:#FBF6EA!important}
+.price-top .tagp{background:transparent;border-color:rgba(249,215,78,.45)}
+.free-row{background:transparent!important;border:1px solid rgba(249,215,78,.4)!important;border-radius:12px}
+
+/* Form */
+form.demo{border-radius:16px;box-shadow:none!important}
+.field input,.field select{background:var(--surface);border:1px solid var(--hair-strong);border-radius:10px}
+.field input:focus,.field select:focus{box-shadow:none;border-color:#2E7A70}
+
+/* Footer */
+.socials a{background:transparent;border-color:rgba(241,226,191,.18)}
+.socials a:hover{background:transparent;border-color:#FBF6EA;transform:none}
+
 @media (prefers-reduced-motion:reduce){.cine-stage .laptop{transform:none}}
 
 @media (prefers-reduced-motion:reduce){
@@ -889,10 +1002,6 @@ input[type=range]{accent-color:#FF6F61}
 <main id="top">
 <!-- HERO (cinematic) -->
 <section class="cine" aria-labelledby="hero-h">
-  <canvas class="cine-canvas" id="cineCanvas" aria-hidden="true"></canvas>
-  <div class="cine-beam" aria-hidden="true"></div>
-  <div class="cine-grain" aria-hidden="true"></div>
-  <div class="cine-vignette" aria-hidden="true"></div>
   <div class="wrap cine-inner">
     <a class="cine-announce" href="#demo"><span class="tag">2026–27</span><span class="txt">Now onboarding schools for the new academic year</span><span class="go">Book a slot <svg><use href="#i-arrow"/></svg></span></a>
     <h1 id="hero-h" class="cine-title"><span class="ln"><span>One Platform.</span></span><span class="ln accent"><span>Every School Connection.</span></span></h1>
@@ -1013,22 +1122,22 @@ input[type=range]{accent-color:#FF6F61}
       <p>A complete school ERP: student records, attendance, exams, fees, timetables and parent communication, from the morning roll call to the year-end report card.</p>
     </div>
     <div class="features">
-      <article class="feat big tilt reveal">
+      <article class="feat big reveal">
         <span class="ic"><svg><use href="#i-student"/></svg></span>
         <h3>Student Management</h3>
         <p>Admissions, profiles, siblings, documents, transfer certificates and promotions. Each student's full history from LKG to Class 12 sits in one profile.</p>
         <div class="mini"><div><b>1,248</b>Students</div><div><b>42</b>Sections</div><div><b>12</b>TCs issued</div></div>
       </article>
-      <article class="feat tilt reveal"><span class="ic"><svg><use href="#i-parent"/></svg></span><h3>Parent Portal</h3><p>A dedicated family login with every child linked. Progress, fees and circulars on the parent's phone.</p><div class="who"><span>Parents</span></div></article>
-      <article class="feat tilt reveal"><span class="ic"><svg><use href="#i-teacher"/></svg></span><h3>Teacher Management</h3><p>Staff profiles, subject and class allocation, workload and leave in one place.</p><div class="who"><span>Admin</span><span>Teachers</span></div></article>
-      <article class="feat tilt reveal"><span class="ic"><svg><use href="#i-book"/></svg></span><h3>Homework &amp; Assignments</h3><p>Post work with files and due dates, track submissions, and parents see it the same evening.</p><div class="who"><span>Teachers</span><span>Parents</span></div></article>
-      <article class="feat tilt reveal"><span class="ic"><svg><use href="#i-exam"/></svg></span><h3>Examination &amp; Results</h3><p>Schedule unit tests and term exams, enter marks by subject and publish report cards in one click.</p><div class="who"><span>Teachers</span><span>Admin</span></div></article>
-      <article class="feat tilt reveal"><span class="ic"><svg><use href="#i-attend"/></svg></span><h3>Attendance Management</h3><p>One-tap student attendance with parent alerts, plus faculty check-ins and monthly summaries.</p><div class="who"><span>Teachers</span><span>Admin</span></div></article>
-      <article class="feat tilt reveal"><span class="ic"><svg><use href="#i-cal"/></svg></span><h3>Timetable &amp; Scheduling</h3><p>Clash-free period timetables, substitutions, events and holiday calendars.</p><div class="who"><span>Admin</span><span>Students</span></div></article>
-      <article class="feat tilt reveal"><span class="ic"><svg><use href="#i-rupee"/></svg></span><h3>Fees &amp; Accounts</h3><p>Fee heads, concessions, online payments by UPI or card, receipts, dues and expenses.</p><div class="who"><span>Accounts</span><span>Parents</span></div></article>
-      <article class="feat tilt reveal"><span class="ic"><svg><use href="#i-chat"/></svg></span><h3>Parent–Teacher Communication</h3><p>Private, logged chat and announcements. No personal phone numbers shared.</p><div class="who"><span>Teachers</span><span>Parents</span></div></article>
-      <article class="feat tilt reveal"><span class="ic"><svg><use href="#i-chart"/></svg></span><h3>Reports &amp; Analytics</h3><p>Attendance, results and collections by class, section or month, ready to export.</p><div class="who"><span>Management</span></div></article>
-      <article class="feat tilt reveal"><span class="ic"><svg><use href="#i-school"/></svg></span><h3>School Administration</h3><p>Circulars, approvals, certificates and staff records, all handled from one dashboard.</p><div class="who"><span>Management</span></div></article>
+      <article class="feat reveal"><span class="ic"><svg><use href="#i-parent"/></svg></span><h3>Parent Portal</h3><p>A dedicated family login with every child linked. Progress, fees and circulars on the parent's phone.</p><div class="who"><span>Parents</span></div></article>
+      <article class="feat reveal"><span class="ic"><svg><use href="#i-teacher"/></svg></span><h3>Teacher Management</h3><p>Staff profiles, subject and class allocation, workload and leave in one place.</p><div class="who"><span>Admin</span><span>Teachers</span></div></article>
+      <article class="feat reveal"><span class="ic"><svg><use href="#i-book"/></svg></span><h3>Homework &amp; Assignments</h3><p>Post work with files and due dates, track submissions, and parents see it the same evening.</p><div class="who"><span>Teachers</span><span>Parents</span></div></article>
+      <article class="feat reveal"><span class="ic"><svg><use href="#i-exam"/></svg></span><h3>Examination &amp; Results</h3><p>Schedule unit tests and term exams, enter marks by subject and publish report cards in one click.</p><div class="who"><span>Teachers</span><span>Admin</span></div></article>
+      <article class="feat reveal"><span class="ic"><svg><use href="#i-attend"/></svg></span><h3>Attendance Management</h3><p>One-tap student attendance with parent alerts, plus faculty check-ins and monthly summaries.</p><div class="who"><span>Teachers</span><span>Admin</span></div></article>
+      <article class="feat reveal"><span class="ic"><svg><use href="#i-cal"/></svg></span><h3>Timetable &amp; Scheduling</h3><p>Clash-free period timetables, substitutions, events and holiday calendars.</p><div class="who"><span>Admin</span><span>Students</span></div></article>
+      <article class="feat reveal"><span class="ic"><svg><use href="#i-rupee"/></svg></span><h3>Fees &amp; Accounts</h3><p>Fee heads, concessions, online payments by UPI or card, receipts, dues and expenses.</p><div class="who"><span>Accounts</span><span>Parents</span></div></article>
+      <article class="feat reveal"><span class="ic"><svg><use href="#i-chat"/></svg></span><h3>Parent–Teacher Communication</h3><p>Private, logged chat and announcements. No personal phone numbers shared.</p><div class="who"><span>Teachers</span><span>Parents</span></div></article>
+      <article class="feat reveal"><span class="ic"><svg><use href="#i-chart"/></svg></span><h3>Reports &amp; Analytics</h3><p>Attendance, results and collections by class, section or month, ready to export.</p><div class="who"><span>Management</span></div></article>
+      <article class="feat reveal"><span class="ic"><svg><use href="#i-school"/></svg></span><h3>School Administration</h3><p>Circulars, approvals, certificates and staff records, all handled from one dashboard.</p><div class="who"><span>Management</span></div></article>
     </div>
   </div>
 </section>
