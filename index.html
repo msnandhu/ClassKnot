@@ -950,6 +950,12 @@ form.demo{border-radius:16px;box-shadow:none!important}
 .p-hello .chip{padding:2px 6px;font-size:9.5px}
 .phones .phone.back{filter:brightness(.97)}
 
+/* Zeshin logo in footer */
+.zeshin{gap:12px}
+.zeshin .by{font-size:12.5px;color:var(--on-band-muted);letter-spacing:.01em}
+.zeshin-mark{display:block;width:30px;height:30px;object-fit:contain;max-width:none}
+@media (max-width:640px){.zeshin{flex-wrap:wrap;row-gap:8px}.zeshin .by{flex-basis:100%}}
+
 @media (prefers-reduced-motion:reduce){.cine-stage .laptop{transform:none}}
 
 @media (prefers-reduced-motion:reduce){
@@ -1386,7 +1392,7 @@ form.demo{border-radius:16px;box-shadow:none!important}
     </div>
     <div class="foot-bottom">
       <span>© 2026 Zeshin. All rights reserved.</span>
-      <span class="zeshin"><span class="z" aria-hidden="true">Z</span><b>ZESHIN</b><i></i><span>Beyond the Build</span></span>
+      <span class="zeshin"><small class="by">A product of</small><img class="zeshin-mark" src="assets/zeshin-light.png" alt="Zeshin logo" width="199" height="200"><b>ZESHIN</b><i></i><span>Beyond the Build</span></span>
     </div>
   </div>
 </footer>
