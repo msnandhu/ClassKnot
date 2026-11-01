@@ -31,10 +31,10 @@
 <meta name="twitter:image" content="https://www.classknot.in/og-image.jpg">
 
 <!-- Icons -->
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="preload" as="image" href="/assets/logo-light.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" as="image" href="assets/logo-light.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -786,6 +786,36 @@ input[type=range]{accent-color:#FF6F61}
 /* Pricing: single centred card */
 .price-wrap{grid-template-columns:minmax(0,1fr)!important;max-width:760px;margin-inline:auto}
 
+/* ===== Nav logo as real <img> (reliable on iOS Safari) + mobile nav ===== */
+.brand{flex:none;min-width:0}
+.nav-logo{display:block;height:40px;width:auto;max-width:none}
+.nav .lk-on-dark{display:none}
+.nav.on-dark .lk-on-dark{display:block}
+.nav.on-dark .lk-on-light{display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .nav .lk-on-dark{display:block}:root:not([data-theme="light"]) .nav .lk-on-light{display:none}}
+:root[data-theme="dark"] .nav .lk-on-dark{display:block}
+:root[data-theme="dark"] .nav .lk-on-light{display:none}
+.menu-btn svg{width:20px;height:20px}
+.mobile-menu{gap:2px}
+.mobile-menu a{display:flex;align-items:center;gap:10px}
+.mobile-menu a.mm-cta{justify-content:center;margin-top:8px;color:#FFFFFF;background:linear-gradient(180deg,#FF8A7E,#FF6F61 55%,#EE5D50);box-shadow:0 10px 22px -10px rgba(255,111,97,.7)}
+.mobile-menu a.mm-cta:hover{background:#FF6F61}
+.mobile-menu a.mm-wa{justify-content:center;color:#1E8E4E}
+.mobile-menu a.mm-wa svg{width:18px;height:18px;color:#25D366}
+@media (max-width:960px){
+  .nav{padding-top:10px}
+  .nav-in{height:60px;padding:0 8px 0 14px;border-radius:18px;gap:12px}
+  .nav-logo{height:36px}
+  .menu-btn{width:44px;height:44px;border-radius:13px}
+}
+@media (max-width:440px){
+  .nav-in{height:56px;padding:0 7px 0 12px;border-radius:16px}
+  .nav-logo{height:33px}
+  .menu-btn{width:42px;height:42px}
+  .mobile-menu{border-radius:16px}
+}
+@media (max-width:340px){.nav-logo{height:28px}}
+
 @media (prefers-reduced-motion:reduce){.cine-stage .laptop{transform:none}}
 
 @media (prefers-reduced-motion:reduce){
@@ -835,7 +865,7 @@ input[type=range]{accent-color:#FF6F61}
 <header class="nav" id="nav">
   <div class="wrap">
     <div class="nav-in">
-      <a class="brand" href="#top" aria-label="ClassKnot home"><span class="logo-full nav-logo" role="img" aria-label="ClassKnot — Connecting Campus Operations to Parents Trust"></span></a>
+      <a class="brand" href="#top" aria-label="ClassKnot home"><img class="nav-logo lk-on-dark" src="assets/logo-light.png" alt="ClassKnot — Connecting Campus Operations to Parents Trust" width="1000" height="221"><img class="nav-logo lk-on-light" src="assets/logo.png" alt="" aria-hidden="true" width="1000" height="221"></a>
       <nav aria-label="Primary">
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
@@ -851,7 +881,7 @@ input[type=range]{accent-color:#FF6F61}
       </div>
     </div>
     <div class="mobile-menu" id="mobileMenu" hidden>
-      <a href="#about">About</a><a href="#features">Features</a><a href="#parents">Parent Portal</a><a href="#management">For Management</a><a href="#pricing">Pricing</a><a href="#demo">Book a Free Demo</a>
+      <a href="#about">About</a><a href="#features">Features</a><a href="#parents">Parent Portal</a><a href="#management">For Management</a><a href="#pricing">Pricing</a><a class="mm-cta" href="#demo">Book a Free Demo</a><a class="mm-wa" href="https://wa.me/916374169846" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Chat on WhatsApp</a>
     </div>
   </div>
 </header>
